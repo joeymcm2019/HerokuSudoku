@@ -34,7 +34,7 @@ var basicChecks = false;
 
 function Sudoku(){
 
-    //only one difficulty for now. I beleive it's medium. 
+    //only one difficulty for now. I believe it's medium.
     const [difficulty, setDifficulty] = useState(difficulties[medium]);
 
     //track everything that the user is doing with the puzzle and react appropriately.
@@ -42,7 +42,7 @@ function Sudoku(){
 
 
     //will contain filled in square values.
-    const [numberArray, setNumberArray] = useState([]); 
+    const [numberArray, setNumberArray] = useState([]);
     //true when we have finished generating random solvable puzzle
     const [numberArrayFilled, setNumberArrayFilled] = useState(false);
 
@@ -50,7 +50,7 @@ function Sudoku(){
     const [userPossibilitiesFilled, setUserPossibilitiesFilled] = useState(false);
 
     //will contain all the square components
-    const [puzzleArray, setPuzzleArray] = useState([]); 
+    const [puzzleArray, setPuzzleArray] = useState([]);
 
     //possibility grid. will contain solution when only one possibility is left in unfilled squares.
     const [puzzlePossibilities, setPuzzlePossibilities] = useState([]);
@@ -62,7 +62,7 @@ function Sudoku(){
 
     //puzzle board html
     const [puzzleBoard, setPuzzleBoard] = useState([]);
-    const [gridCreated, setGridCreated] = useState(false); 
+    const [gridCreated, setGridCreated] = useState(false);
 
     //true if we have a the random solvable puzzle ready to go.
     const [readyToFillPuzzle, setReadyToFillPuzzle] = useState(false);
@@ -74,7 +74,7 @@ function Sudoku(){
     const [puzzleSolved, setPuzzleSolved] = useState(false);
 
 
-    //Puzzle solution. 
+    //Puzzle solution.
     const [solutionArray, setSolutionArray] = useState([]);
     const [solutionBoard, setSolutionBoard] = useState([]);
 
@@ -151,7 +151,7 @@ function Sudoku(){
         while (!puzzleSolvable || numbersFilledIn >= maxNumbers) {
             var puzzleSolvable = false;
             numbersFilledIn = 0;
-            //basicChecks && 
+            //basicChecks &&
             console.log('------------------------------starting puzzle fresh--------------------------------');
             var copyNumberArray = new Array(9);
             var copyPuzzlePossibilities = new Array(9);
@@ -210,7 +210,7 @@ function Sudoku(){
                                 }
                                   //console.log("---------------------changes", changes);
                                 // if (changes === false){
-                                //  validPlacement = false;   
+                                //  validPlacement = false;
                                 // } else {
                                 //     //numbersFilledIn += changes;
                                 //     //i += numbersFilledIn;
@@ -250,7 +250,7 @@ function Sudoku(){
                                 i = 81;
                             } else {
                                // copyNumberArray[row][col] = randNum; //leave last move out if puzzle is solvable
-                               
+
                                basicChecks && console.log("successfully addded: ", row, col, randNum);
                             }
                         } else {
@@ -287,13 +287,13 @@ function Sudoku(){
                 }
             }
             //console.log("number array, just filled: ", numberArray);
-                      
+
             if (puzzleSolvable && numbersFilledIn <= maxNumbers) {
                 basicChecks && console.log("numbersFilledIn", numbersFilledIn, "solvable?: ", puzzleSolvable)
-               
+
                 //console.log("number array before solution check", numberArray);
                // console.log("checking solution: ", checkSolution(numberArray));
-            
+
                errorChecks && console.log("what's in copy? ", copyNumberArray);
                 for (let t = 0; t < 9; t++){
                     for (let u = 0; u < 9; u++){
@@ -334,7 +334,7 @@ function Sudoku(){
             //         }
             //     }
             // }
-            
+
             errorChecks && console.log("possibilities: ", possibilities);
             // console.log("possibilities", possibilities);
             setUserPossibilites(possibilities);
@@ -368,21 +368,21 @@ function Sudoku(){
                         useStarterSquare = false;
                         numberToAddToSolution = puzzlePossibilities[i][j];
                     }
-                    puzzleArrayTemp[i][j] = 
+                    puzzleArrayTemp[i][j] =
 
-                    <Square key={i * n + j} 
+                    <Square key={i * n + j}
                             number={numberArray[i][j]}
-                            row={i + 1} 
-                            col={j + 1} 
+                            row={i + 1}
+                            col={j + 1}
                             possiblities={userPossibilities[i][j]}
                     />;
 
-                    solutionArrayTemp[i][j] = 
+                    solutionArrayTemp[i][j] =
 
-                    <SolutionSquare key={100 + i*n + j} 
+                    <SolutionSquare key={100 + i*n + j}
                             number={numberToAddToSolution}
-                            row={i + 1} 
-                            col={j + 1} 
+                            row={i + 1}
+                            col={j + 1}
                             isStarterSquare = {useStarterSquare}
                     />;
 
@@ -486,13 +486,13 @@ function Sudoku(){
                 if (applyChange) {
                     // var row = puzzleContext.currRow;
                     // var col = puzzleContext.currCol;
-                    // if (puzzleContext.valueTypeToChange === "normal" && changingPuzzle.numToAdd != 10 
+                    // if (puzzleContext.valueTypeToChange === "normal" && changingPuzzle.numToAdd != 10
                     //      && row != undefined && puzzleContext.numberArray[row-1][col-1] === -1){ //adding number
                     //     //setNumPiecesLeftToFill(numPiecesLeftToFill-1);
                     // } else if (puzzleContext.valueTypeToChange === "normal" && changingPuzzle.numToAdd === 10
                     //             && row != undefined && puzzleContext.numberArray[row-1][col-1] != -1){
                     //     //setNumPiecesLeftToFill(numPiecesLeftToFill+1);
-                    // 
+                    //
                     setPuzzleContext((prevValues) => {
                         return ({ ...prevValues, numberMenuSelection: changingPuzzle.numToAdd, changingNumber: true })
                     })
@@ -538,10 +538,12 @@ function Sudoku(){
     }
 
     return ( //use .map
-        <div>
-            {!puzzleSolved ? <h2 className='difficulty' >{difficulty === "Hardest" ? <>Difficulty: Hardest 🧠!</> : <>Difficulty: {difficulty}</>}</h2> 
+        <div className='page'>
+            {!puzzleSolved ? <h2 className='difficulty' >{difficulty === "Hardest" ? <>Difficulty: Hardest 🧠!</> : <>Difficulty: {difficulty}</>}</h2>
             : <h2 className='difficulty'>Puzzle Solved!</h2> }
-            {puzzleBoard}
+            <div className="puzzle">
+                {puzzleBoard}
+            </div>
             {/* <Puzzleboard filledSquares={numberArray} puzzlePossibilities={puzzlePossibilities}/> */}
             <NumberChoiceUI handleClick={handleClick}/>
             <h2 className='statusLink' onClick={changeShowAbout}>About</h2>
@@ -550,33 +552,33 @@ function Sudoku(){
                 <div className='statusMsg'>
                     <p className='statusTitle'>Author: Joey McMahon</p>
                     <p>
-                    This sudoku app currently creates a random solvable puzzle from sratch, 
-                    using naked candidates and hidden candidates. I didn't implement the implicit 
+                    This sudoku app currently creates a random solvable puzzle from sratch,
+                    using naked candidates and hidden candidates. I didn't implement the implicit
                     cases for hidden candidates. It only finds the obvious hidden sets where all squares
-                    part of the hidden set contain the same unique numbers rather than having to account for 
-                    if one or more of the squares only contains part of the set. That is a much harder algorithm. 
-                    For Naked Candidates, I included the implicit tripple, but no other implicit cases. 
+                    part of the hidden set contain the same unique numbers rather than having to account for
+                    if one or more of the squares only contains part of the set. That is a much harder algorithm.
+                    For Naked Candidates, I included the implicit tripple, but no other implicit cases.
                     Again, it gets very complicated.
                     </p>
                     <p>
                     There are still more algorithms I could implement which would likely
                     drastically increase the difficulty. I may do that sometime. Stay tuned!
-                    Pointing pairs/triples would be next. 
+                    Pointing pairs/triples would be next.
                     </p>
                     <p onClick={changeShowHowToPlay} className='statusLink'>How to play</p>
                     {
-                        showHowToPlay && 
+                        showHowToPlay &&
                             <div>
                                 <p>
 
-                                Each row, col, and 3 by 3 grid must contain numbers 1 through 9. 
+                                Each row, col, and 3 by 3 grid must contain numbers 1 through 9.
                                 Thus no number should be repeated within a row, col, or grid.
-                                The little numbers are the possibilities for each square. 
-                                For V1.0, the current version, these are autofilled with the 
-                                most basic elimination algorithm. To change big numbers, make 
-                                sure the normal button is selected. Press the X button when a 
-                                big number is selected to remove it. To change possibilities, 
-                                make sure the possibility button is selected. 
+                                The little numbers are the possibilities for each square.
+                                For V1.0, the current version, these are autofilled with the
+                                most basic elimination algorithm. To change big numbers, make
+                                sure the normal button is selected. Press the X button when a
+                                big number is selected to remove it. To change possibilities,
+                                make sure the possibility button is selected.
 
                                 </p>
                             </div>
@@ -594,13 +596,13 @@ function Sudoku(){
                 </div>
             }
             {
-                userWantsSolution && 
+                userWantsSolution &&
                 <div className='breathingRoom'>
                 {solutionBoard}
-                </div>    
+                </div>
 
             }
-            
+
         </div>
 
 

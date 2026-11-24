@@ -5,7 +5,7 @@ import { PuzzleContext } from '../Puzzlecontext';
 
 function NumberChoiceUI({handleClick}) {
 
-   
+
 
     const [normalNumberSelectorClassName, setNormalNumberSelectorClassName] = useState("normalNumberSelector selected");
     const [possibilitySelectorClassName, setPossibilitySelectorClassName] = useState("possibilitySelector notSelected");
@@ -56,8 +56,8 @@ function NumberChoiceUI({handleClick}) {
 
     return (
         <div>
-        {normalOrPossibility()}
-        <NumberInterface sendBackNumber={sendBackNumber}/>
+            {normalOrPossibility()}
+            <NumberInterface sendBackNumber={sendBackNumber}/>
         </div>
         );
 }
