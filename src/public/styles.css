@@ -37,7 +37,6 @@ body {
 
 
 .header {
-    width: 100%;
     padding: 10px 0px 10px 20px;
     background-color: rgb(190, 190, 190);
     margin-left: 0px;
@@ -70,6 +69,11 @@ body {
   align-items: center;
   margin-right: -2px;
   margin-block-start: -2px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(240, 240, 240);
+  }
 }
 
 .rectangle {
@@ -82,7 +86,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 75px;
+  margin-bottom: 30px;
+  cursor: pointer;
 }
 
 .squareIsSelected {
@@ -90,7 +95,12 @@ body {
 }
 
 .starterSquare {
+  cursor: unset !important;
   background-color: rgb(224, 224, 224);
+
+  &:hover {
+    background-color: rgb(224, 224, 224);
+  }
 }
 
 
@@ -161,6 +171,7 @@ body {
   font-weight: 400;
   color: rgb(41, 41, 173);
   margin-top: 15px;
+  cursor: pointer;
 }
 
 .statusMsg {
@@ -191,6 +202,7 @@ body {
   margin-left: 3px;
   border-radius: 6px;
   border-color: rgb(109, 109, 109);
+  cursor: pointer;
 }
 
 .normalOrPossibility {
@@ -208,6 +220,8 @@ body {
   justify-content: center;
   align-items: center;
   margin-right: -1px;
+
+  cursor: pointer;
 }
 
 .selected {
@@ -227,6 +241,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .contradiction {
