@@ -6,7 +6,7 @@ function NumberInterface({sendBackNumber}){
 
 
     const [numberMenu, setNumberMenu] = useState("");
-    
+
     useEffect(() =>{
         var numbers = userInterface();
         setNumberMenu(numbers);
@@ -27,7 +27,6 @@ function NumberInterface({sendBackNumber}){
             <div>
                 <div className='puzzleBoard numberSelector'>
                     {selectorHTML}
-                    
                 </div>
             </div>
         )
